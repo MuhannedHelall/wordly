@@ -38,7 +38,7 @@ function App() {
         setGuessedWord("");
       } else {
         setIsGameOver(true);
-        alert("you lost, try again!");
+        alert(`You lost, the word is (${randomWord})`);
       }
     } else if (e.key.match(/^[a-zA-Z]$/)) {
       setGuessedWord((prev) =>
