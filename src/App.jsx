@@ -38,6 +38,7 @@ function App() {
         setGuessedWord("");
       } else {
         setIsGameOver(true);
+        alert("you lost, try again!");
       }
     } else if (e.key.match(/^[a-zA-Z]$/)) {
       setGuessedWord((prev) =>
@@ -70,7 +71,7 @@ function App() {
   return (
     <>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mx-auto">
-        <p className="text-center">
+        <p className="text-justify">
           Try to guess the word, you only got 6 tries!
         </p>
         {guesses.map((guess, i) => (
@@ -109,6 +110,8 @@ function Line({ guess, randomWord, isSubmitted }) {
               ? "bg-green-600"
               : isSubmitted && randomWord.includes(guess[j])
               ? "bg-amber-400"
+              : isSubmitted && !randomWord.includes(guess[j])
+              ? "bg-gray-800"
               : ""
           }`}
         >
